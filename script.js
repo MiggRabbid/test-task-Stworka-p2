@@ -1,4 +1,7 @@
-/* Данные для скрипта */
+/*
+* Данные для скрипта
+* Предполагаю, что они приходят массивом объектов
+*/
 const pathData = [
   { length: 1665, angle: 0 },
   { length: 947, angle: 90 },
@@ -6,36 +9,32 @@ const pathData = [
   { length: 1300, angle: 90 },
   { length: 2225, angle: 180 },
   { length: 2239, angle: 270 },
-]
-/* Предполагаю, что данные приходят массивом объектов */
+];
 
 /* Скрип для вычисления координат */
-const createSvgPath = (data) => {
-  const mmToCm = (mm) => mm * 0.1;
-  
+const mmToCm = (mm) => mm * 0.1;
+
+export const createSvgPath = (data) => {
+  if (!data.length) return '';
+
   const startingX = 0;
   const startingY = 0;
+  const startPoint = `M ${startingX} ${startingY} `;
 
   let currentX = 0;
   let currentY = 0;
 
-  return data.reduce((acc, point, index) => {
+  const pathString =  data.reduce((acc, point) => {
     const lengthInCm = mmToCm(point.length);
     const angleInRadians = point.angle * Math.PI / 180;
 
     currentX += lengthInCm * Math.cos(angleInRadians);
     currentY += lengthInCm * Math.sin(angleInRadians);
 
-    if (index === 0) {
-      return `${acc} M ${startingX} ${startingY} L ${currentX.toFixed(2)} ${currentY.toFixed(1)}`
-    }
+    return `${acc} L ${currentX.toFixed(2)} ${currentY.toFixed(1)}`;
+  }, startPoint);
 
-    if (index === data.length - 1) {
-      return `${acc} L ${currentX.toFixed(2)} ${currentY.toFixed(1)} Z`
-    }
-
-    return `${acc} L ${currentX.toFixed(2)} ${currentY.toFixed(1)}`
-  }, '');
+  return `${pathString} Z`;
 };
 
 /* Отрисовка path в svg  */
