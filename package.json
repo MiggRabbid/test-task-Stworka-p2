@@ -1,0 +1,19 @@
+{
+  "name": "test-task-stworka-p2",
+  "version": "0.0.1",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MiggRabbid/test-task-Stworka-p2.git"
+  },
+  "author": "MiggRabbid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiggRabbid/test-task-Stworka-p2/issues"
+  },
+  "homepage": "https://github.com/MiggRabbid/test-task-Stworka-p2#readme",
+  "description": "Test Task for Stworka"
+}
