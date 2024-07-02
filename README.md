@@ -31,4 +31,5 @@ ___________|_________
 
 ----
 
-#### [ссылка на скрипт]()
+#### [ссылка на скрипт](https://github.com/MiggRabbid/test-task-Stworka-p2/blob/main/script.js#L17-L38)
+#### [ссылка на Replit.com](https://replit.com/@MiggRabbid/Test-tesk-Stworka#script.js)
